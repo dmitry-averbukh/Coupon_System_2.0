@@ -77,12 +77,16 @@ public class CompanyManagementController {
 
     @GetMapping("/all_coupons")
     public ResponseEntity<List<Coupon>> getAllCoupons(@RequestParam String token) {
+
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+
         if (clientSession.getIdentifier() == 1) {
+            clientSession.access();
             return ResponseEntity.of(companyService.getAllCompanyCoupons(clientSession.getClientId()));
         }
+
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 }

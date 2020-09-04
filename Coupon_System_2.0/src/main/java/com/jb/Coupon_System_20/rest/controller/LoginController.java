@@ -1,9 +1,6 @@
 package com.jb.Coupon_System_20.rest.controller;
 
-import com.jb.Coupon_System_20.rest.AdminSystem;
-import com.jb.Coupon_System_20.rest.ClientSession;
-import com.jb.Coupon_System_20.rest.CompanySystem;
-import com.jb.Coupon_System_20.rest.CustomerSystem;
+import com.jb.Coupon_System_20.rest.*;
 import com.jb.Coupon_System_20.rest.ex.InvalidLoginException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +20,6 @@ public class LoginController {
     private final CompanySystem companySystem;
     private final CustomerSystem customerSystem;
     private final AdminSystem adminSystem;
-
 
     public LoginController(@Qualifier("tokens") Map<String, ClientSession> tokensMap,
                            CompanySystem companySystem, CustomerSystem customerSystem, AdminSystem adminSystem) {
