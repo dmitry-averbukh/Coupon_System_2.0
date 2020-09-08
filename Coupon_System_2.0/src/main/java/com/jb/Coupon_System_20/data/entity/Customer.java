@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 public class Customer {
     @Id
@@ -14,7 +15,7 @@ public class Customer {
     private String password;
     @ManyToMany
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JoinTable(name = "customer_coupon",joinColumns = @JoinColumn(name = "customer_id"),
+    @JoinTable(name = "customer_coupon", joinColumns = @JoinColumn(name = "customer_id"),
             inverseJoinColumns = @JoinColumn(name = "coupon_id"))
     private List<Coupon> coupons;
 

@@ -21,6 +21,6 @@ public class AdminSystem {
         if (optionalAdmin.isPresent()){
             return ClientSession.create(optionalAdmin.get().getId());
         }
-        throw new InvalidLoginException("Unable to login with provided credentials!");
+        throw new InvalidLoginException();
     }
 }

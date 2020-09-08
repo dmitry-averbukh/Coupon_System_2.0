@@ -22,6 +22,6 @@ public class CustomerSystem {
         if (optionalCustomer.isPresent()) {
             return ClientSession.create(optionalCustomer.get().getId());
         }
-        throw new InvalidLoginException("Unable to login with provided credentials!");
+        throw new InvalidLoginException();
     }
 }

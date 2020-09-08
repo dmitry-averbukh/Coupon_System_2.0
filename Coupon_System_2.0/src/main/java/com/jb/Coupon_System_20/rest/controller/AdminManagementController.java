@@ -1,15 +1,14 @@
 package com.jb.Coupon_System_20.rest.controller;
 
-
 import com.jb.Coupon_System_20.data.entity.Coupon;
 import com.jb.Coupon_System_20.rest.ClientSession;
+import com.jb.Coupon_System_20.rest.ex.TokenTimeOutException;
 import com.jb.Coupon_System_20.service.AdminService;
 import com.jb.Coupon_System_20.service.CompanyService;
 import com.jb.Coupon_System_20.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,7 +34,7 @@ public class AdminManagementController {
     public ResponseEntity<List<Coupon>> GetCustomerCoupons(@RequestParam String token, @RequestParam long id) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
 
         if (clientSession.getIdentifier() == 3) {
 
@@ -55,7 +54,7 @@ public class AdminManagementController {
     public ResponseEntity<List<Coupon>> getAllCoupons(@RequestParam String token) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
 
         if (clientSession.getIdentifier() == 3) {
 
@@ -76,7 +75,7 @@ public class AdminManagementController {
                                             @RequestParam String token) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
 
         if (clientSession.getIdentifier() == 3) {
 
@@ -91,7 +90,7 @@ public class AdminManagementController {
                                                 @RequestParam long id) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
 
         if (clientSession.getIdentifier() == 3) {
 
@@ -106,7 +105,8 @@ public class AdminManagementController {
                                                @RequestParam String token) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
+
         if (clientSession.getIdentifier() == 3) {
             clientSession.access();
             adminService.updateCoupon(coupon);
@@ -120,7 +120,8 @@ public class AdminManagementController {
                                                      @RequestParam String token) {
         ClientSession clientSession = tokensMap.get(token);
         if (clientSession == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new TokenTimeOutException();
+
         if (clientSession.getIdentifier() == 3) {
             clientSession.access();
             return ResponseEntity.of(adminService.getAllCompanyCoupons(id));

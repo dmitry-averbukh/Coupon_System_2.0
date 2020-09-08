@@ -13,7 +13,7 @@ import java.util.Map;
 @Component
 public class SessionCheck {
     private Map<String, ClientSession> tokensMap;
-    int deleteTimeInMSec = 10000;
+    int deleteTimeInMSec = 180000;
     public SessionCheck(@Qualifier("tokens") Map<String, ClientSession> tokensMap) {
         this.tokensMap = tokensMap;
     }

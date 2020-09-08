@@ -2,6 +2,7 @@ package com.jb.Coupon_System_20.rest.controller;
 
 import com.jb.Coupon_System_20.data.entity.Coupon;
 import com.jb.Coupon_System_20.rest.ClientSession;
+import com.jb.Coupon_System_20.rest.ex.TokenTimeOutException;
 import com.jb.Coupon_System_20.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,7 +42,7 @@ public class CustomerManagementController {
             Optional<List<Coupon>> customerCoupons = customerService.getAllCustomerCoupons(clientSession.getClientId());
 
             if (customerCoupons != null && !customerCoupons.isEmpty()) {
-                return ResponseEntity.ok(customerCoupons.get());
+                throw new TokenTimeOutException();
             }
 
             return ResponseEntity.noContent().build();

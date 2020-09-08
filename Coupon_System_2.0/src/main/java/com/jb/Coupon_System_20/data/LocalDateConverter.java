@@ -2,12 +2,8 @@ package com.jb.Coupon_System_20.data;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.time.LocalDateTime;
-
-
-
 import java.sql.Timestamp;
-
+import java.time.LocalDateTime;
 
 @Converter(autoApply = true)
 public class LocalDateConverter implements AttributeConverter<LocalDateTime, Timestamp> {

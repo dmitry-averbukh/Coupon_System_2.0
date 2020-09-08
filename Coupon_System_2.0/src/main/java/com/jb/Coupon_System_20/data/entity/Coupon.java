@@ -3,7 +3,6 @@ package com.jb.Coupon_System_20.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jb.Coupon_System_20.data.LocalDateConverter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

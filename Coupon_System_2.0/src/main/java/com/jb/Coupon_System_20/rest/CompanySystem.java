@@ -22,6 +22,6 @@ public class CompanySystem {
         if (optionalCompany.isPresent()){
             return ClientSession.create(optionalCompany.get().getId());
         }
-        throw new InvalidLoginException("Unable to login with provided credentials!");
+        throw new InvalidLoginException();
     }
 }

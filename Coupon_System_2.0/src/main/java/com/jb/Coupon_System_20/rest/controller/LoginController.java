@@ -69,7 +69,7 @@ public class LoginController {
 
 
                 } catch (InvalidLoginException e3) {
-                    throw new InvalidLoginException("wrong email or password!");
+                    throw new InvalidLoginException();
                 }
             }
         }

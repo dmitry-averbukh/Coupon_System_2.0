@@ -15,9 +15,13 @@ public class Company {
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Coupon> coupons;
+
+    public Company() {
+        coupons = new ArrayList<>();
+    }
 
     public long getId() {
         return id;
@@ -57,10 +61,6 @@ public class Company {
 
     public void setCoupons(List<Coupon> coupons) {
         this.coupons = coupons;
-    }
-
-    public Company() {
-        coupons = new ArrayList<>();
     }
 }
 

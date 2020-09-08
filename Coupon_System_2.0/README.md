@@ -46,6 +46,10 @@ responses 200-OK
 
 Content type **`json`** - contains `token`
 
+After you get your token, you can use it in subsequent requests;
+
+Token will be deleted after 30 minutes from the last request
+
 Response sample:
 
 ```
