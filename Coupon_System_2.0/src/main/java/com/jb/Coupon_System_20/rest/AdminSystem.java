@@ -16,9 +16,10 @@ public class AdminSystem {
     public AdminSystem(AdminRepo adminRepo) {
         this.adminRepo = adminRepo;
     }
-    public ClientSession createSession (String email, String password) throws InvalidLoginException {
+
+    public ClientSession createSession(String email, String password) throws InvalidLoginException {
         Optional<Admin> optionalAdmin = adminRepo.findAdminByEmailAndPassword(email, password);
-        if (optionalAdmin.isPresent()){
+        if (optionalAdmin.isPresent()) {
             return ClientSession.create(optionalAdmin.get().getId());
         }
         throw new InvalidLoginException();

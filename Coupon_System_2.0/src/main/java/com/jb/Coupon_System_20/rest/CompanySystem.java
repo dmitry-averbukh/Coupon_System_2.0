@@ -17,9 +17,9 @@ public class CompanySystem {
         this.companyRepo = companyRepo;
     }
 
-    public ClientSession createSession (String email, String password) throws InvalidLoginException {
+    public ClientSession createSession(String email, String password) throws InvalidLoginException {
         Optional<Company> optionalCompany = companyRepo.findCompanyByEmailAndPassword(email, password);
-        if (optionalCompany.isPresent()){
+        if (optionalCompany.isPresent()) {
             return ClientSession.create(optionalCompany.get().getId());
         }
         throw new InvalidLoginException();

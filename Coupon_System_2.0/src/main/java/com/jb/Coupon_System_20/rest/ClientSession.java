@@ -5,14 +5,6 @@ public class ClientSession {
     private long lastAccessMillis;
     private int identifier;
 
-    public int getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(int identifier) {
-        this.identifier = identifier;
-    }
-
     private ClientSession(long clientId, long lastAccessMillis) {
         this.clientId = clientId;
         this.lastAccessMillis = lastAccessMillis;
@@ -21,6 +13,14 @@ public class ClientSession {
 
     public static ClientSession create(long clientId) {
         return new ClientSession(clientId, System.currentTimeMillis());
+    }
+
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(int identifier) {
+        this.identifier = identifier;
     }
 
     public long getLastAccessMillis() {

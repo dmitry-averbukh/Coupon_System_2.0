@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ import java.util.Map;
 public class CompanyManagementController {
     private final CompanyService companyService;
     private final Map<String, ClientSession> tokensMap;
-    
+
     @Autowired
     public CompanyManagementController(CompanyService companyService,
                                        @Qualifier("tokens") Map<String, ClientSession> tokensMap) {

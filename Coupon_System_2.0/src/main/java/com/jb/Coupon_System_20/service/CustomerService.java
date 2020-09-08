@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface CustomerService {
     /**
      * that method returns all Coupons of selected Customer.
+     *
      * @param id -- id of a Customer.
      * @return List of Coupon,if exist.
      */

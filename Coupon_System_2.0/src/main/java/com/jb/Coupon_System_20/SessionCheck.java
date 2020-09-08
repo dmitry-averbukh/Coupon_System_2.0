@@ -3,7 +3,6 @@ package com.jb.Coupon_System_20;
 
 import com.jb.Coupon_System_20.rest.ClientSession;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +11,9 @@ import java.util.Map;
 
 @Component
 public class SessionCheck {
-    private Map<String, ClientSession> tokensMap;
     int deleteTimeInMSec = 180000;
+    private Map<String, ClientSession> tokensMap;
+
     public SessionCheck(@Qualifier("tokens") Map<String, ClientSession> tokensMap) {
         this.tokensMap = tokensMap;
     }
@@ -21,11 +21,11 @@ public class SessionCheck {
     @Scheduled(fixedRate = 500)
     public void check() {
 
-        Iterator<Map.Entry<String,ClientSession>> iterator = tokensMap.entrySet().iterator();
+        Iterator<Map.Entry<String, ClientSession>> iterator = tokensMap.entrySet().iterator();
 
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             long lastAccessMillis = iterator.next().getValue().getLastAccessMillis();
-            long timePass = System.currentTimeMillis()-lastAccessMillis;
+            long timePass = System.currentTimeMillis() - lastAccessMillis;
 
             if (timePass > deleteTimeInMSec)
                 iterator.remove();

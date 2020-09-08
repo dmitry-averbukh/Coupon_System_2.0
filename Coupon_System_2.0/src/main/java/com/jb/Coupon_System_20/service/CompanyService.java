@@ -15,14 +15,15 @@ public interface CompanyService {
 
     /**
      * that method should update Coupon based on coupon transmitted as parameter
+     *
      * @param coupon -- coupon with information to update;
-     * @return updated Coupon, if existing.
      */
 
     void updateCoupon(Coupon coupon) throws JsonProcessingException;
 
     /**
      * that method simply adds new coupon.
+     *
      * @param coupon -- coupon to add.
      * @return Coupon that have bean added.
      */
@@ -31,6 +32,7 @@ public interface CompanyService {
 
     /**
      * that method deletes Coupon by provided id.
+     *
      * @param id -- id of coupon to delete.
      * @return Coupon that was deleted, if existing.
      */
@@ -39,6 +41,7 @@ public interface CompanyService {
 
     /**
      * that method checks if Coupon exist by provided id
+     *
      * @param id -- id of Coupon to check.
      * @return boolean.
      */
@@ -47,7 +50,8 @@ public interface CompanyService {
 
     /**
      * that method checks if Coupon belongs to Company.
-     * @param couponId -- id of Coupon to check.
+     *
+     * @param couponId  -- id of Coupon to check.
      * @param companyId -- id of Company to check.
      * @return boolean.
      */
@@ -56,6 +60,7 @@ public interface CompanyService {
 
     /**
      * that method searching for Coupon.
+     *
      * @param id -- id of Coupon to find.
      * @return Coupon, if existing.
      */
@@ -64,6 +69,7 @@ public interface CompanyService {
 
     /**
      * that method returns all Coupons of selected Company by Company id
+     *
      * @param id -- Company id Coupons to get
      * @return -- list of Coupons, if existing.
      */
@@ -72,7 +78,8 @@ public interface CompanyService {
 
     /**
      * that method searching for Company
-     * @param email -- Company email.
+     *
+     * @param email    -- Company email.
      * @param password -- Company password.
      * @return Company, if existing.
      */
@@ -81,6 +88,7 @@ public interface CompanyService {
 
     /**
      * that method returns Company by id;
+     *
      * @param id -- id of Company to return;
      * @return Company, if existing.
      */
